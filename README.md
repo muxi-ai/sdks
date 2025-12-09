@@ -1,15 +1,18 @@
-# Language-Specific SDKs for MUXI Server
+# MUXI SDKs
 
-The MUXI Server provides official SDKs for various programming languages and platforms, making integrating MUXI into your applications easy. 
+The MUXI Server provides official SDKs for multiple programming languages and platforms, making it easy to integrate MUXI into your applications. 
 
 These SDKs handle authentication and API communication and provide type-safe interfaces for interacting with MUXI Servers and Overlords. Each SDK is designed to follow language-specific best practices and conventions while maintaining a consistent API structure across all implementations.
 
 
-### Language-specific SDKs
+> [!NOTE]
+> If you're looking for the CLI, visit [muxi-ai/muxi-cli](https://github.com/muxi-ai/muxi-cli)
+
+### SDKs
 
 #### Phase 1: Initial Release 
 - [ ] [Python](https://github.com/muxi-ai/muxi-python)
-- [ ] [TypeScript](https://github.com/muxi-ai/muxi-node)
+- [ ] [TypeScript](https://github.com/muxi-ai/muxi-typescript)
 - [ ] [Go](https://github.com/muxi-ai/muxi-go)
 
 #### Phase 2: Week 2-3

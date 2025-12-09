@@ -1,0 +1,36 @@
+[submodule "python"]
+	path = python
+	url = git@github.com:muxi-ai/muxi-python.git
+[submodule "go"]
+	path = go
+	url = git@github.com:muxi-ai/muxi-go.git
+[submodule "php"]
+	path = php
+	url = git@github.com:muxi-ai/muxi-php.git
+[submodule "csharp"]
+	path = csharp
+	url = git@github.com:muxi-ai/muxi-csharp.git
+[submodule "ruby"]
+	path = ruby
+	url = git@github.com:muxi-ai/muxi-ruby.git
+[submodule "swift"]
+	path = swift
+	url = git@github.com:muxi-ai/muxi-swift.git
+[submodule "kotlin"]
+	path = kotlin
+	url = git@github.com:muxi-ai/muxi-kotlin.git
+[submodule "dart"]
+	path = dart
+	url = git@github.com:muxi-ai/muxi-dart.git
+[submodule "java"]
+	path = java
+	url = git@github.com:muxi-ai/muxi-java.git
+[submodule "typescript"]
+	path = typescript
+	url = git@github.com:muxi-ai/muxi-typescript.git
+[submodule "rust"]
+	path = rust
+	url = git@github.com:muxi-ai/muxi-rust.git
+[submodule "cpp"]
+	path = cpp
+	url = git@github.com:muxi-ai/muxi-cpp.git
