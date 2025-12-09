@@ -6,7 +6,7 @@ These SDKs handle authentication and API communication and provide type-safe int
 
 
 > [!NOTE]
-> If you're looking for the CLI, visit [muxi-ai/muxi-cli](https://github.com/muxi-ai/muxi-cli)
+> If you're looking for the CLI, visit [muxi-ai/cli](https://github.com/muxi-ai/cli)
 
 ### SDKs
 
