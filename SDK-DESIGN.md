@@ -229,6 +229,8 @@ console.log(health.status);
 
 ### Go SDK
 
+Current Go SDK status: implemented per this design, including idempotency headers on every request, retry/backoff, full ServerClient/FormationClient surface (server logs, memory/scheduler/identifiers/async/logging/A2A/overlord/LLM, events/logs/request streaming), response metadata, and debug logging.
+
 ```go
 package main
 
