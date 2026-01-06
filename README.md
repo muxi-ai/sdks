@@ -13,7 +13,7 @@ These SDKs handle authentication and API communication and provide type-safe int
 #### Phase 1: Initial Release 
 - [ ] [Python](https://github.com/muxi-ai/muxi-python)
 - [ ] [TypeScript](https://github.com/muxi-ai/muxi-typescript)
-- [ ] [Go](https://github.com/muxi-ai/muxi-go)
+- [x] [Go](https://github.com/muxi-ai/muxi-go)
 
 #### Phase 2: Week 2-3
 - [ ] [PHP](https://github.com/muxi-ai/muxi-php)
