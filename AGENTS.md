@@ -1,28 +1,49 @@
+<coding_guidelines>
 ## AGENTS GUIDE (sdks root)
 
 Purpose: quick orientation for AI coding agents working in this mono-repo of language SDK submodules.
 
 ### Repo layout
-- `go/`, `python/`, `typescript/`, etc. are git submodules; most work here targets `go/`.
-- Root docs: `SDK-DESIGN.md`, `SDK-CONVENTIONS.md`, `RELEASE_PLAN.md`.
+```
+sdks/
+├── go/           # Go SDK submodule (github.com/muxi-ai/muxi-go)
+├── python/       # Python SDK submodule (github.com/muxi-ai/muxi-python)
+├── typescript/   # TypeScript SDK submodule (github.com/muxi-ai/muxi-typescript)
+├── SDK-DESIGN.md
+├── SDK-CONVENTIONS.md
+└── RELEASE_PLAN.md
+```
 
-### Workflow
-- Inspect status: `git status --short` (run at repo root). Submodule changes appear as `m go` etc.
-- To update Go SDK code, edit inside `go/src/` (the Go module root is `go/src`).
-- After modifying Go submodule, commit **inside** `go/`, then return to root, `git add go`, and commit the pointer.
+### Submodule workflow
+1. **Check status**: `git status --short` at root shows `m go` etc. for modified submodules
+2. **Edit inside submodule**: `cd go/src && <make changes>`
+3. **Commit inside submodule**: `cd go && git add . && git commit -m "..."`
+4. **Push submodule**: `cd go && git push`
+5. **Update root pointer**: `cd .. && git add go && git commit -m "Update go submodule"`
 
-### Go submodule quick commands
-- Format: `cd go/src && gofmt -w <files>`
-- Tests: `cd go/src && go test ./...`
-- Status in submodule: `cd go && git status --short`
-- Push submodule: `cd go && git push`
+### SDK-specific commands
 
-### Conventions & cautions
-- Idempotency header must remain automatic on every request; don’t add toggles.
-- Streaming calls should keep infinite timeouts; don’t add per-request deadlines unless required.
-- Avoid editing README/other docs unless explicitly requested.
-- Do not add new dependencies without user approval.
+| SDK | Test | Format | Build |
+|-----|------|--------|-------|
+| Go | `cd go/src && go test ./...` | `gofmt -w .` | N/A |
+| Python | `cd python && pytest` | `black .` | N/A |
+| TypeScript | `cd typescript && npm test` | N/A | `npm run build` |
+
+### Conventions (all SDKs)
+- Idempotency header (`X-Muxi-Idempotency-Key`) auto-generated on every request — no toggles
+- Streaming calls use infinite timeouts — no per-request deadlines
+- Retries: exponential backoff on 429/5xx, respect `Retry-After`
+- Auth: HMAC for ServerClient, key headers for FormationClient
+- Do not add dependencies without user approval
+- Do not edit README/docs unless explicitly requested
+
+### CI/CD
+All three SDKs have automated release pipelines:
+- **Go**: Tags trigger releases via goreleaser
+- **Python**: Push to main triggers PyPI publish (OIDC)
+- **TypeScript**: Push to main triggers npm publish (OIDC trusted publishing)
 
 ### Deliverables
-- Keep responses concise; summarize changes and tests run.
-- Ensure validators (at least `go test ./...` when Go code changes) are run before final summary.
+- Keep responses concise; summarize changes and tests run
+- Run validators before completing: `go test`, `pytest`, `npm test`
+</coding_guidelines>
