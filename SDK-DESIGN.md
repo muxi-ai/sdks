@@ -61,7 +61,7 @@ For interacting with a specific formation's runtime API — chat, health checks,
 - Secret management
 - MCP operations
 
-**API Endpoints:** Direct to formation port OR via server proxy `/api/{id}/*`
+**API Endpoints:** Direct to formation port OR via server proxy `/api/{id}/*` (MUST support explicit base URL override, e.g., `http://localhost:9012/v1`)
 
 ---
 
