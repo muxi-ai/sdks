@@ -11,6 +11,14 @@ Build intelligent agents that actually work. These official SDKs give you everyt
 
 > Looking for the CLI? See [muxi-ai/cli](https://github.com/muxi-ai/cli).
 
+
+> [!IMPORTANT]
+> ## MUXI Ecosystem
+>
+> This repository is part of the larger MUXI ecosystem.
+>
+> **📋 Complete architectural overview:** See [muxi/ARCHITECTURE.md](https://github.com/muxi-ai/muxi/blob/main/ARCHITECTURE.md) - explains how all 9 repositories fit together, dependencies, status, and roadmap.
+
 ---
 
 ## Available SDKs
