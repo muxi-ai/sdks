@@ -6,12 +6,13 @@ Purpose: quick orientation for AI coding agents working in this mono-repo of lan
 ### Repo layout
 ```
 sdks/
-├── go/           # Go SDK submodule (github.com/muxi-ai/muxi-go)
-├── python/       # Python SDK submodule (github.com/muxi-ai/muxi-python)
-├── typescript/   # TypeScript SDK submodule (github.com/muxi-ai/muxi-typescript)
-├── SDK-DESIGN.md
-├── SDK-CONVENTIONS.md
-└── RELEASE_PLAN.md
+├── go/               # Go SDK submodule (github.com/muxi-ai/muxi-go)
+├── python/           # Python SDK submodule (github.com/muxi-ai/muxi-python)
+├── typescript/       # TypeScript SDK submodule (github.com/muxi-ai/muxi-typescript)
+├── contributing/
+│   ├── conventions.md    # Cross-language API conventions
+│   └── designs/          # Per-language architecture docs
+└── (placeholder dirs for future SDKs)
 ```
 
 ### Submodule workflow
@@ -36,6 +37,7 @@ sdks/
 - Auth: HMAC for ServerClient, key headers for FormationClient
 - Do not add dependencies without user approval
 - Do not edit README/docs unless explicitly requested
+- See `contributing/conventions.md` for full cross-language method naming spec
 
 ### CI/CD
 All three SDKs have automated release pipelines:

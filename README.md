@@ -68,26 +68,17 @@ for await (const chunk of await client.chatStream({ message: "Hello!" })) {
 
 ---
 
-## Coming Soon
+## More Languages
 
-We're actively working on SDKs for more languages:
-
-- PHP, Ruby, C#
-- Swift, Kotlin, Dart  
-- Java, Rust, C/C++
-
-Want to contribute or request a language? [Open an issue](https://github.com/muxi-ai/sdks/issues)!
+Planning SDKs for Ruby, Java, C#, PHP, Swift, Kotlin, Dart, Rust, and C++. Want to contribute or request a language? [Open an issue](https://github.com/muxi-ai/sdks/issues).
 
 ---
 
 ## Documentation
 
-Each SDK includes:
-- `README.md` — Quick start and installation
-- `USER_GUIDE.md` — Full API reference and patterns
-- Working examples in the `examples/` directory
+For full guides, examples, and API reference, visit [muxi.org/docs](https://muxi.org/docs).
 
-For platform documentation, visit [muxi.org/docs](https://muxi.org/docs).
+Each SDK repo also includes a `README.md` with quickstart and a `USER_GUIDE.md` with detailed patterns.
 
 ---
 
