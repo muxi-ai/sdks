@@ -1,12 +1,13 @@
-# SDK Telemetry and Version Notifications
+# SDK Telemetry, Version Notifications, and Draft Mode
 
-**Version:** 1.0  
-**Last Updated:** 2025-02-04  
+**Version:** 1.1  
+**Last Updated:** 2025-02-09  
 **Status:** Implemented
 
-This document describes two features added to all 12 MUXI SDKs:
+This document describes features added to all 12 MUXI SDKs:
 1. Console telemetry support via the `_app` parameter
 2. SDK version update notifications
+3. Draft mode for local development (`mode` parameter)
 
 ---
 
@@ -181,3 +182,68 @@ def add_sdk_version_header(response, request):
             response.headers["X-Muxi-SDK-Latest"] = latest
     return response
 ```
+
+---
+
+## 5. Draft Mode (`mode` Parameter)
+
+### Purpose
+
+The `mode` parameter enables local development workflows with `muxi up`. It switches the URL prefix from `/api/` (production) to `/draft/` (development).
+
+### URL Routing
+
+| Mode | URL Pattern | Use Case |
+|------|-------------|----------|
+| `"live"` (default) | `/api/{formation_id}/v1/*` | Production deployments |
+| `"draft"` | `/draft/{formation_id}/v1/*` | Local dev with `muxi up` |
+
+### Implementation
+
+All SDKs add a `mode` parameter to `FormationConfig`:
+
+| SDK | Parameter | Default |
+|-----|-----------|---------|
+| TypeScript | `mode?: "live" \| "draft"` | `"live"` |
+| Python | `mode: str = "live"` | `"live"` |
+| Go | `Mode string` | `""` (treated as `"live"`) |
+| Ruby | `mode: "live"` | `"live"` |
+| PHP | `string $mode = 'live'` | `'live'` |
+| C# | `string Mode = "live"` | `"live"` |
+| Swift | `mode: String = "live"` | `"live"` |
+| Kotlin | `mode: String = "live"` | `"live"` |
+| Dart | `String mode = 'live'` | `'live'` |
+| Java | `String mode` (constructor param) | `"live"` |
+| Rust | `mode: String` | `"live".to_string()` |
+| C++ | `std::string mode = "live"` | `"live"` |
+
+### Usage Examples
+
+**Python:**
+```python
+# Production (default)
+client = FormationClient(server_url="https://prod:7890", formation_id="my-app")
+# → https://prod:7890/api/my-app/v1
+
+# Local development
+client = FormationClient(server_url="http://localhost:7890", formation_id="my-app", mode="draft")
+# → http://localhost:7890/draft/my-app/v1
+```
+
+**TypeScript:**
+```typescript
+// Production (default)
+const client = new FormationClient({ serverUrl: "https://prod:7890", formationId: "my-app" });
+// → https://prod:7890/api/my-app/v1
+
+// Local development
+const client = new FormationClient({ serverUrl: "http://localhost:7890", formationId: "my-app", mode: "draft" });
+// → http://localhost:7890/draft/my-app/v1
+```
+
+### Backwards Compatibility
+
+- Default `mode="live"` preserves existing behavior
+- No changes required for existing code
+- Only affects URL construction when using `server_url` + `formation_id`
+- `base_url` and `url` parameters bypass mode entirely
