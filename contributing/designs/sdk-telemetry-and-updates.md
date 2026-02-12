@@ -15,7 +15,7 @@ This document describes features added to all 12 MUXI SDKs:
 
 ### Purpose
 
-The `_app` parameter enables the MUXI Console (console.muxi.dev) to identify requests originating from its interface. This is an internal/undocumented parameter used for telemetry and analytics.
+The `_app` parameter enables the MUXI Console (console.muxi.org) to identify requests originating from its interface. This is an internal/undocumented parameter used for telemetry and analytics.
 
 ### Implementation
 
@@ -47,7 +47,7 @@ X-Muxi-App: console
 ```typescript
 // TypeScript (internal usage by Console)
 const client = new FormationClient({
-  serverUrl: "https://api.muxi.ai",
+  serverUrl: "https://api.muxi.org",
   formationId: "my-formation",
   clientKey: "key",
   adminKey: "admin",
