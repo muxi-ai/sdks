@@ -106,7 +106,7 @@ All methods follow this canonical naming. Adapt casing to language conventions.
 | `StreamEvents` | `StreamEvents` | `stream_events` | `streamEvents` |
 | `StreamLogs` | `StreamLogs` | `stream_logs` | `streamLogs` |
 | `GetOverlordConfig` | `GetOverlordConfig` | `get_overlord_config` | `getOverlordConfig` |
-| `GetOverlordPersona` | `GetOverlordPersona` | `get_overlord_persona` | `getOverlordPersona` |
+| `GetOverlordSoul` | `GetOverlordSoul` | `get_overlord_soul` | `getOverlordSoul` |
 | `GetLLMSettings` | `GetLLMSettings` | `get_llm_settings` | `getLlmSettings` |
 | `GetAuditLog` | `GetAuditLog` | `get_audit_log` | `getAuditLog` |
 | `ClearAuditLog` | `ClearAuditLog` | `clear_audit_log` | `clearAuditLog` |

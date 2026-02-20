@@ -195,7 +195,7 @@ GetLoggingDestinations(ctx) (*LoggingDestinations, error)
 
 // Admin-only
 GetOverlordConfig(ctx) (*OverlordConfig, error)
-GetOverlordPersona(ctx) (*Persona, error)
+GetOverlordSoul(ctx) (*Soul, error)
 GetLLMSettings(ctx) (*LLMSettings, error)
 GetAuditLog(ctx) (*AuditLog, error)
 ClearAuditLog(ctx) error
