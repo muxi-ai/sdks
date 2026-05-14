@@ -5,6 +5,12 @@ Changes apply to all 12 SDKs (Go, Python, TypeScript, Ruby, PHP, C#, Java, Kotli
 
 ## [0.20260408.0] - 2026-04-08
 
+## [0.20260514.0] - 2026-05-14
+
+### Fixed
+- Go SDK only: moved the Go module root from `go/src` to `go/` so `go get github.com/muxi-ai/muxi-go@latest` and `import "github.com/muxi-ai/muxi-go"` work with standard Go module layout.
+- Go SDK only: updated Go CI, RC, and release workflows to use the repository root for `go.sum`, `.version`, unit tests, and integration tests.
+
 ### Fixed
 - Made chat and audio-chat SSE parsing heartbeat-aware across all SDKs so `: keepalive` comments no longer cause false idle failures.
 - Updated SSE handling to parse full event blocks, including multi-line `data:` payloads and event-only frames such as `event: done`.
