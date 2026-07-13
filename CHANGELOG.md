@@ -3,6 +3,12 @@
 All notable changes to the MUXI SDKs will be documented in this file.
 Changes apply to all 12 SDKs (Go, Python, TypeScript, Ruby, PHP, C#, Java, Kotlin, Swift, Dart, Rust, C++) unless noted otherwise.
 
+## [Unreleased]
+
+### Added
+- UI widget support (Response Envelope UI): chat streams now decode the `event: ui` frame delivered before `event: done`. Go exposes typed `UIWidget`/`UIOption` on `ChatChunk.UI`, TypeScript exports `UIWidget`/`UIOption` interfaces (chunks yield `{ type: "ui", ui: [...] }`), and Python adds a `parse_ui_widgets` helper for its dict-based stream. Unknown widget types pass through untouched (progressive enhancement). Lead SDKs (Go, Python, TypeScript) only so far; remaining SDKs to follow.
+- Envelope `request.idempotency_key` echo is now surfaced on unwrapped responses as `idempotency_key` (Python, TypeScript; Go already exposed it via `RequestInfo.IdempotencyKey`).
+
 ## [0.20260408.0] - 2026-04-08
 
 ## [0.20260514.0] - 2026-05-14
