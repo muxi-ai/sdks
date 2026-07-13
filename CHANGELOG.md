@@ -6,8 +6,11 @@ Changes apply to all 12 SDKs (Go, Python, TypeScript, Ruby, PHP, C#, Java, Kotli
 ## [Unreleased]
 
 ### Added
-- UI widget support (Response Envelope UI): chat streams now decode the `event: ui` frame delivered before `event: done`. Go exposes typed `UIWidget`/`UIOption` on `ChatChunk.UI`, TypeScript exports `UIWidget`/`UIOption` interfaces (chunks yield `{ type: "ui", ui: [...] }`), and Python adds a `parse_ui_widgets` helper for its dict-based stream. Unknown widget types pass through untouched (progressive enhancement). Lead SDKs (Go, Python, TypeScript) only so far; remaining SDKs to follow.
-- Envelope `request.idempotency_key` echo is now surfaced on unwrapped responses as `idempotency_key` (Python, TypeScript; Go already exposed it via `RequestInfo.IdempotencyKey`).
+- UI widget support (Response Envelope UI) across all 12 SDKs: chat streams now surface the `event: ui` frame delivered before `event: done`. Go exposes typed `UIWidget`/`UIOption` on `ChatChunk.UI` and TypeScript exports `UIWidget`/`UIOption` interfaces (chunks yield `{ type: "ui", ui: [...] }`); the frame-based SDKs (Python, Ruby, PHP, C#, Java, Kotlin, Swift, Dart, Rust, C++) add an idiomatic `parse_ui_widgets`/`parseUiWidgets` helper that extracts the widgets array from a ui frame and returns empty for other or malformed frames. Unknown widget types pass through untouched (progressive enhancement).
+- Envelope `request.idempotency_key` echo is now surfaced on unwrapped responses as `idempotency_key` across all 12 SDKs (Go already exposed it via `RequestInfo.IdempotencyKey`).
+
+### Changed
+- All 12 SDK version sources reset to `1.0.0` to start the 1.x release train (release CI derives the next ScalVer from the current major).
 
 ## [0.20260408.0] - 2026-04-08
 
